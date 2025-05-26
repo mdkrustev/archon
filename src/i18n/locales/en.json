@@ -1,5 +1,101 @@
 {
     "products": "Products",
     "Login with you Google account": "Login with you Google account",
-    "cancel": "Cancel"
+    "cancel": "Stornieren",
+    "projects": "Projects",
+    "users": "Users",
+    "start": "Start",
+    "loading": "Loading",
+    "workTypes": "Work types",
+    "newWorkType": "New work type",
+    "features": {
+        "title": "Why choose our platform?",
+        "template_based_tasks": {
+            "title": "Template-Based Tasks",
+            "description": "Quickly create tasks using pre-defined work types and templates."
+        },
+        "real_time_management": {
+            "title": "Real-Time Project Management",
+            "description": "Plan, track, and manage construction tasks in real time from anywhere."
+        },
+        "mobile_workstations": {
+            "title": "Mobile Workstations",
+            "description": "Manage your projects from containers, job sites, or the office."
+        },
+        "cta_button": "View all services"
+    },
+    "how_it_works": {
+        "title": "How It Works",
+        "step_1": {
+            "title": "Choose a Template",
+            "description": "Select a task type from our database of ready-made work templates."
+        },
+        "step_2": {
+            "title": "Customize",
+            "description": "Adjust the task to your specific needs and resources."
+        },
+        "step_3": {
+            "title": "Start Working",
+            "description": "Begin work on-site with your team in real time."
+        },
+        "cta_button": "Explore the services"
+    },
+    "testimonials": {
+        "title": "Customer Reviews",
+        "one": {
+            "quote": "The platform helped us optimize site management by 40% in time savings.",
+            "author": "Peter Ivanov, Site Manager"
+        },
+        "two": {
+            "quote": "Easy to use and great for organizing modular construction tasks.",
+            "author": "Maria Petrova, Engineer"
+        },
+        "three": {
+            "quote": "We started working in a new container within minutes using this system.",
+            "author": "Dimitar K., Project Manager"
+        }
+    },
+    "cta": {
+        "title": "Ready to get started?",
+        "subtitle": "Join thousands of engineers and managers using our platform daily.",
+        "button": "Sign up for free"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": {
+            "question": "Is this platform suitable for small construction teams?",
+            "answer": "Yes! Our platform is designed for both small and large teams working on modular or site-based construction."
+        },
+        "q2": {
+            "question": "Can I use it offline?",
+            "answer": "You can view cached data offline. Full functionality requires internet connection."
+        },
+        "q3": {
+            "question": "Do you offer support during implementation?",
+            "answer": "Yes, our team provides full setup guidance and ongoing technical support."
+        },
+        "cta_button": "Contact Us"
+    },
+    "footer": {
+        "companyDescription": "Intelligent management of construction sites and tasks.",
+        "company": {
+            "title": "Company",
+            "about": "About",
+            "contact": "Contact",
+            "features": "Features"
+        },
+        "legal": {
+            "title": "Legal",
+            "terms": "Terms of Service",
+            "privacy": "Privacy Policy",
+            "faq": "FAQ"
+        },
+        "newsletter": {
+            "title": "Stay Updated",
+            "description": "Subscribe to our newsletter for updates and construction tips.",
+            "placeholder": "Your email",
+            "button": "Subscribe"
+        },
+        "copyright": "All rights reserved."
+    }
 }

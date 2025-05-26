@@ -17,13 +17,30 @@ datasource db {
 // schema.prisma
 
 model User {
-  id        String   @id
+  id        String   @id  @default(uuid())
   name      String?
   email     String   @unique
-  image     String?
+  role      Role @default(client)
   googleId  String   @unique
   active    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+enum Role {
+  admin
+  client
+}
+
+model Category {
+  id        String    @id
+  key       String?
+  features  Feature[] @relation("CategoryToFeature")
+}
+
+model Feature {
+  id         String   @id
+  key        String?
+  categoryId String
+  category   Category @relation("CategoryToFeature", fields: [categoryId], references: [id])
+}

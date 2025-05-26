@@ -9,12 +9,20 @@ import {
 } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
-type Translations = Record<string, string>
+interface NestedTranslations {
+  [key: string]: NestedTranslations[keyof NestedTranslations] extends never
+    ? never
+    : NestedTranslations[keyof NestedTranslations] extends string
+    ? string
+    : NestedTranslations;
+}
+type Translations = NestedTranslations;
 
 interface TranslationContextType {
   t: (key: string) => string
   locale: string
   switchLanguage: (newLocale: string) => void
+  localizePath: (path: string) => string
 }
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined)
@@ -39,7 +47,17 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     load()
   }, [locale])
 
-  const t = (key: string): string => dict?.[key] || key
+  const t = (key: string): string => {
+    const keys = key.split('.')
+    let value: any = dict
+
+    for (const k of keys) {
+      if (!value || !value[k]) return key
+      value = value[k]
+    }
+
+    return value as string
+  }
 
   const switchLanguage = (newLocale: string) => {
     if (!pathname.startsWith(`/${locale}`)) return
@@ -47,12 +65,16 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
     router.push(newPath)
   }
 
+  const localizePath = (path: string) => {
+    return `/${locale}${path}`
+  }
+
   if (!dict) {
-    return null // <LoadingSpinner />
+    return null
   }
 
   return (
-    <TranslationContext.Provider value={{ t, locale, switchLanguage }}>
+    <TranslationContext.Provider value={{ t, locale, switchLanguage, localizePath }}>
       {children}
     </TranslationContext.Provider>
   )

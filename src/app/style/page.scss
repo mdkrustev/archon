@@ -7,3 +7,13 @@
     font-optical-sizing: auto;
     padding: 20px;
 }
+
+.page-img-container {
+    width: 100%;
+    height: calc(100vh - 60px);
+    
+    img {
+        width: 100%;
+
+    }
+}

@@ -9,6 +9,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       googleId?: string;
+      id?:string
     } & DefaultSession["user"];
   }
 }
@@ -40,7 +41,7 @@ const authOptions: NextAuthOptions = {
         const now = new Date();
 
         try {
-          await prisma.user.upsert({
+          const user = await prisma.user.upsert({
             where: { googleId: token.sub },
             update: {
               name: session.user.name || undefined,
@@ -56,7 +57,6 @@ const authOptions: NextAuthOptions = {
             },
           });
 
-          // Добавяме googleId към session
           session.user.googleId = token.sub;
         } catch (error) {
           console.error("Error creating/updating user", error);

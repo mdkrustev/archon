@@ -1,14 +1,12 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
-import { BanIcon, Camera, GoalIcon, LogIn, LogOutIcon } from "lucide-react"
+import { useSession, signIn } from "next-auth/react";
+import { BanIcon } from "lucide-react"
 import { Button } from "./ui/button";
-import { useTranslation } from 'react-i18next'
 
 import { LogInIcon } from "lucide-react";
 import {
     AlertDialog,
-    AlertDialogAction,
     AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
@@ -18,31 +16,29 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { useTranslationContext } from "@/i18n/TranslationContext";
-import Google from "next-auth/providers/google";
 import GoogleIcon from "./ui/icons/GoogleIcon";
+import HeaderProfile from "./HeaderProfile";
 
 export default function HeaderAuth() {
+    
     const { data: session, status } = useSession();
     const { t } = useTranslationContext()
 
-    if (status === "loading") return <p>Loading...</p>;
+    if (status === "loading") return <div className="p-[5px]">{t('loading')}...</div>;
     return (
         <>
-
             {session ? (
-                <>
-                    <Button variant={"ghost"} className="cursor-pointer" onClick={() => signOut()}><LogOutIcon /> Sign Out</Button>
-                </>
+                <HeaderProfile />
             ) : (
                 <AlertDialog>
                     <AlertDialogTrigger className="cursor-pointer flex" asChild>
-                        <Button variant={"ghost"}>Log In <LogInIcon className="ml-[10px]" size={25} /></Button>
+                        <Button variant={"ghost"} className="text-[18px]">Log In <LogInIcon className="ml-[10px]" size={25} /></Button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>
                         <AlertDialogHeader>
                             <AlertDialogTitle className="text-center">{'Login with you Google account'}</AlertDialogTitle>
                             <AlertDialogDescription className="flex justify-center  pt-[10px]">
-                                <Button className="cursor-pointer" variant={'outline'} onClick={() => signIn("google")}><GoogleIcon /> Sign in with Google</Button>
+                                <Button className="cursor-pointer" variant={'outline'} onClick={() => signIn("google")}><GoogleIcon /> {t('signInWith')} Google</Button>
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
