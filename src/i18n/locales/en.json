@@ -1,13 +1,22 @@
 {
     "products": "Products",
     "Login with you Google account": "Login with you Google account",
-    "cancel": "Stornieren",
+    "signOut": "Sign out",
+    "cancel": "Cancel",
     "projects": "Projects",
     "users": "Users",
     "start": "Start",
     "loading": "Loading",
     "workTypes": "Work types",
     "newWorkType": "New work type",
+    "signInWith": "Sign in with",
+    "loginFormTitle": "Login with your account",
+    "addWorkTypeTitle": "New Work Type",
+    "name": "Name",
+    "category": "Category",
+    "addWorkTypeDescription": "Add new work type in the list",
+    "enterName": "Enter a name",
+    "selectCategory": "Select a category",
     "features": {
         "title": "Why choose our platform?",
         "template_based_tasks": {
@@ -97,5 +106,16 @@
             "button": "Subscribe"
         },
         "copyright": "All rights reserved."
+    },
+    "workTypeCategories": {
+        "preparation": "Preparation",
+        "foundation": "Foundation",
+        "rough_construction": "Rough Construction",
+        "roofing": "Roofing",
+        "facade": "Facade",
+        "interior_works": "Interior Works"
+    },
+    "validation": {
+        "required": "This field is required"
     }
 }

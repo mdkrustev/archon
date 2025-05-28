@@ -9,7 +9,7 @@ export default function HeroContainerInterior() {
     const {t} = useTranslationContext()
 
     return (
-        <section className="relative w-full h-[calc(100vh-60px)] bg-cover bg-center" style={{ backgroundImage: "url('/img/interior-container.jpg')" }}>
+        <section className="relative w-full h-[calc(100vh)] pt-[60px] bg-cover bg-center" style={{ backgroundImage: "url('/img/interior-container.jpg')" }}>
             {/* Полупрозрачен overlay */}
             <div style={{ backgroundColor: 'rgba(19, 131, 91, 0.5)' }} className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white px-6 max-w-3xl">

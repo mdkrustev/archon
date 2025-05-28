@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 
 
 import { TranslationProvider } from '@/i18n/TranslationContext'
+import { DynamicValueProvider } from "@/contexts/DynamicValueContext";
 
 interface Props {
     children: ReactNode;
@@ -13,7 +14,9 @@ interface Props {
 export default function Providers(props: Props) {
     return <SessionProvider>
         <TranslationProvider>
-            {props.children}
+            <DynamicValueProvider>
+                {props.children}
+            </DynamicValueProvider>
         </TranslationProvider>
     </SessionProvider>
 }

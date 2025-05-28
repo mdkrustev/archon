@@ -6,6 +6,7 @@ import Providers from "@/components/Providers";
 import HeaderBar from "@/components/HeaderBar";
 import { dir } from 'i18next';
 import SidebarMenu from "@/components/SidebarMenu";
+import AddWorkType from "@/components/AddWorkType";
 
 export const metadata: Metadata = {
   title: "Anchor",
@@ -45,10 +46,11 @@ export default async function RootLayout({
     <html lang={locale} dir={dir(locale)} >
       <body>
         <Providers>
-          <div className="w-full max-w-[1920px] m-auto">
+          <div className="w-full m-auto">
             <HeaderBar />
-            <SidebarMenu/>
+            <SidebarMenu />
             {children}
+            <AddWorkType />
           </div>
         </Providers>
       </body>

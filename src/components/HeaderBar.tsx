@@ -10,11 +10,11 @@ export default function HeaderBar() {
     const { t, locale, localizePath } = useTranslationContext();
 
     return (
-        <header className="bg-white h-[60px]">
+        <header className="bg-white h-[60px] fixed z-10 w-full shadow-2xs">
             <nav aria-label="Global" className="flex w-full justify-between">
-                <div className="flex w-[260px] justify-center pt-[8px]">
+                <div className="flex w-[260px] justify-center pt-[11px]">
                     <Link href={localizePath('/')} className="cursor-pointer">
-                        <img alt="" src="/img/archon-logo.svg" className="h-9 w-auto" />
+                        <img alt="" src="/img/archon-logo.svg" className="h-8 w-auto" />
                     </Link>
                 </div>
                 <div className="flex flex-grow">

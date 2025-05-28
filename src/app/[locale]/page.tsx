@@ -11,6 +11,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useTranslationContext } from '@/i18n/TranslationContext'
 import { useEffect } from 'react'
+import AddWorkType from '@/components/AddWorkType'
 
 export default function Home() {
   const { t, locale } = useTranslationContext()

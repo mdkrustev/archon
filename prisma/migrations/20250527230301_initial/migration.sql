@@ -1,6 +1,9 @@
 -- CreateEnum
 CREATE TYPE "Role" AS ENUM ('admin', 'client');
 
+-- CreateEnum
+CREATE TYPE "WorkTypeCategoriesKey" AS ENUM ('preparation', 'foundation', 'rough_construction', 'roofing', 'facade', 'interior_works');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
@@ -16,20 +19,12 @@ CREATE TABLE "User" (
 );
 
 -- CreateTable
-CREATE TABLE "Category" (
+CREATE TABLE "WorkType" (
     "id" TEXT NOT NULL,
-    "key" TEXT,
+    "name" TEXT,
+    "category" "WorkTypeCategoriesKey",
 
-    CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Feature" (
-    "id" TEXT NOT NULL,
-    "key" TEXT,
-    "categoryId" TEXT NOT NULL,
-
-    CONSTRAINT "Feature_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "WorkType_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -37,6 +32,3 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_googleId_key" ON "User"("googleId");
-
--- AddForeignKey
-ALTER TABLE "Feature" ADD CONSTRAINT "Feature_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
